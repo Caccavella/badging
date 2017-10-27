@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import './dashboard.css';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 class Dashboard extends Component {
     constructor() {
         super();
 
         this.state = {
-
+            notes: {}
         }
     }
+    componentDidMount() {
+        this.getNotes();
+    }
 
+    getNotes(){
+        axios.get('/api/getNotes').then(res => {
+            this.setState({
+                notes: res
+            })
+            console.log(this.notes)
+        })
+    }
     render() {
+
         return (
             <div className="dashcontainer">
                 <header id="head">
@@ -23,6 +36,10 @@ class Dashboard extends Component {
                     <Link to="/create-note"><button className="buttontwo">+</button></Link>
                 </div>
                     <p>Recent Notes</p>
+
+                    <div className="notes-container">
+
+                    </div>
             </div>
         )
     }
