@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "massive": "^4.4.0",
+    "passport": "^0.4.0",
+    "passport-auth0": "^0.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "redux": "^3.7.2",
+    "redux-promise-middleware": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,9 +26,18 @@
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
+  "main": "server/server.js",
+  "proxy": "http://localhost:3034",
   "devDependencies": {},
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caccavella/masteries.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Caccavella/masteries/issues"
+  },
+  "homepage": "https://github.com/Caccavella/masteries#readme"
 }

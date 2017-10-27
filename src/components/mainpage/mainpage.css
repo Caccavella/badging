@@ -1,0 +1,44 @@
+.mainpage {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, #f9f9f9, #b5b5b5);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.buttoncontainer {
+    flex-direction: column;
+}
+.buttoncontainer>h1 {
+    font-size: 65px;
+}
+.buttoncontainer h2 {
+    color: rgba(10,50,200,.8);
+    font-family: fantasy;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+#login {
+    background: white;
+    border: 2px solid black;
+    color: black;
+    font-size: 30px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#login:hover {
+    cursor: pointer;
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+
+@media(min-width: 370px) {
+    .buttoncontainer>h1 {
+        font-size: 80px;
+    }
+}
