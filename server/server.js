@@ -29,20 +29,20 @@ passport.use(new Auth0Strategy({
     domain: process.env.AUTH_DOMAIN,
     clientID: process.env.AUTH_CLIENT_ID,
     clientSecret: process.env.AUTH_CLIENT_SECRET,
-    callbackURL: process.env.AUTH_CALLBACK,
-}, function(accessToken, refreshToken, extraParams, profile, done) {
-    console.log(profile)
+    callbackURL: process.env.AUTH_CALLBACK
+}, function (accessToken, refreshToken, extraParams, profile, done) {
+    // console.log(profile)
     const db = app.get('db');
     db.find_user(profile.id).then(user => {
-        if(!user[0]) {
-            db.create_user([profile.displayName, profile.email, profile.id]).then((user) => {
-                return done(null, user[0])
-            })
-        } else if (user) {
-            return done(null, user[0])
+        if (user[0]) {
+            return done(null, user);
+        } else {
+            db.create_user([profile.displayName, profile.emails[0].value, profile.picture, profile.id])
+                .then(user => {
+                    return done(null, user);
+                })
         }
     })
-
 }))
 
 passport.serializeUser(function (user, done) {
@@ -67,28 +67,28 @@ app.get('/auth/logout', (req, res) => {
 
 // ////////// User ////////////////////
 
-// app.get('/api/users', (req, res, next) => {
-//     req.app.get('db').get_user().then(response => res.status(200).send(response))
-// })
+app.get('/api/users', (req, res, next) => {
+    req.app.get('db').get_user().then(response => res.status(200).send(response))
+})
 
 
 
 ////////// Notes ///////////////////
 
-app.post('/api/notes', (req, res, next) => {
-    req.app.get('db').create_new_note().then(response => req.status(200).send(response))
+app.post('/api/addNote', (req, res, next) => {
+    app.get('db').create_new_note().then(response => req.status(200).send(response))
 })
 
 app.get('/api/getNotes', (req, res, next) => {
-    req.app.get('db').get_user_notes().then(response => res.send(200).send(response))
+    app.get('db').get_user_note().then(response => res.send(200).send(response))
 })
 
 app.put('/api/editNotes', (req, res, next) => {
-    req.app.get('db').edit_user_note().then(response => res.send(200).send(response))
+    app.get('db').edit_user_note().then(response => res.send(200).send(response))
 })
 
 app.delete('/api/deleteNote', (req, res, next) => {
-    req.app.get('db').delete_user_note().then(response => res.send(200).send(response))
+    app.get('db').delete_user_note().then(response => res.send(200).send(response))
 })
 
 

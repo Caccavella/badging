@@ -1,0 +1,28 @@
+#head {
+    display: flex;
+    width: 100vw;
+    height: 70px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 8px rgba(20,20,20,.7);
+    position: fixed;
+    top:0;
+    opacity: .8;
+    justify-content: space-between;
+}
+
+.text-effect {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 50px "Aladin", Helvetica, sans-serif;
+    color: rgba(48,48,48,1);
+    text-align: center;
+    text-transform: normal;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67) ;
+    margin: 5px;
+}

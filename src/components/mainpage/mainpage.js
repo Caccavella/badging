@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import './mainpage.css';
 
 class Mainpage extends Component {
-    constructor() {
-        super();
 
-        this.state = {
-
-        }
-    }
-
+    
     render() {
         return (
             <div className="mainpage">

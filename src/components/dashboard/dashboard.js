@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './dashboard.css';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import {getUserInfo} from '../../redux/main-reducer';
 import axios from 'axios';
+import Header from '../header/header'
 
 class Dashboard extends Component {
     constructor() {
@@ -10,9 +13,11 @@ class Dashboard extends Component {
         this.state = {
             notes: {}
         }
+        this.getNotes = this.getNotes.bind(this);
     }
     componentDidMount() {
         this.getNotes();
+        // console.log(this.props.user)
     }
 
     getNotes(){
@@ -20,22 +25,22 @@ class Dashboard extends Component {
             this.setState({
                 notes: res
             })
-            console.log(this.notes)
+            console.log(this.state.notes)
         })
     }
     render() {
+        // var notesDisplay = this..props.notes.map( (e,i) => {
 
-        return (
+        // })
+        return (    
             <div className="dashcontainer">
-                <header id="head">
-                    <div>Home</div>
-                    <div>All Notes</div>
-                </header>
+                    <Header />
                 <div className="new-note">
                     <Link to="/create-note"><button className="buttonone">+ New Note</button></Link>
                     <Link to="/create-note"><button className="buttontwo">+</button></Link>
                 </div>
                     <p>Recent Notes</p>
+                    <h5>Welcome {this.props.user}</h5>
 
                     <div className="notes-container">
 
@@ -45,4 +50,8 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+function mapStateToProps(state) {
+    return state
+}
+
+export default connect(mapStateToProps, {getUserInfo} )(Dashboard);
