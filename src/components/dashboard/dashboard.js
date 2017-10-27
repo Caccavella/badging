@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './dashboard.css';
+import {Link} from 'react-router-dom';
 
 class Dashboard extends Component {
     constructor() {
@@ -18,8 +19,8 @@ class Dashboard extends Component {
                     <div>All Notes</div>
                 </header>
                 <div className="new-note">
-                    <button className="buttonone">+ New Note</button>
-                    <button className="buttontwo">+</button>
+                    <Link to="/create-note"><button className="buttonone">+ New Note</button></Link>
+                    <Link to="/create-note"><button className="buttontwo">+</button></Link>
                 </div>
                     <p>Recent Notes</p>
             </div>
