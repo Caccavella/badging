@@ -49,6 +49,7 @@ export function getNotes() {
 }
 
 export function addNoteTitle(data) {
+    console.log(data)
     return {
         type: ADD_NOTE_TITLE,
         payload: data
@@ -56,6 +57,7 @@ export function addNoteTitle(data) {
 }
 
 export function addNoteMessage(message) {
+    console.log(message)
     return {
         type: ADD_NOTE_MESSAGE,
         payload: message

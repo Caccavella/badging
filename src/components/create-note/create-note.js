@@ -25,6 +25,7 @@ class CreateNote extends Component {
     }
 
     handleChange(property, val) {
+        console.log(val)
         this.setState({
             [property]: val
         })
@@ -41,6 +42,9 @@ class CreateNote extends Component {
                 <textarea value={this.state.noteMessage} placeholder="Message" onChange={(e) => this.handleChange('noteMessage', e.target.value)} />
                 <button onClick={() => this.submit()}>Submit Note</button>
                 </div>
+
+
+                <div className="animation">Creating Note...</div>
             </div>
         )
     }

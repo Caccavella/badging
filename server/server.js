@@ -75,7 +75,7 @@ app.get('/api/users', (req, res, next) => {
 
 ////////// Notes ///////////////////
 
-app.post('/api/addNote', (req, res, next) => {
+app.post('/api/addNote', (req, res) => {
     app.get('db').create_new_note().then(response => req.status(200).send(response))
 })
 

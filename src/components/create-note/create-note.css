@@ -1,5 +1,23 @@
 .newcontainer {
+    display: flex;
     margin-top: 20vh;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 80vw;
+    margin-left: 10vw;
 }
+
+
+.animation { 
+    font: bold 100% Consolas, Monaco, monospace;
+    border-right: .1em solid black;
+    width: 14.5em; 
+    width: 17ch;
+    margin: 2em 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(21, end),
+    blink-caret .5s step-end infinite alternate;
+}
+@keyframes typing { from { width: 0; } }
+@keyframes blink-caret { 50% { border-color: transparent; } }
