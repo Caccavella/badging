@@ -1,8 +1,10 @@
 import React from 'react';
 
 
-const LoadingPage = props => {
-    <div>Note: {this.props.notes}</div>
+const LoadingPage = (props) => {
+    return(
+    <div>{props.name}</div>
+    )
 }
 
 export default LoadingPage;

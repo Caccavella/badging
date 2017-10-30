@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../redux/main-reducer';
 import axios from 'axios';
 import Header from '../header/header'
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 class Dashboard extends Component {
     constructor() {
@@ -23,7 +24,7 @@ class Dashboard extends Component {
             })
             console.log(this.state.notes)
         })
-        // this.state.notes.get_notes(this.props.match.params.id).then(note => this.setState({note}))
+        
     }
 
     deleteNote(eid) {
@@ -47,6 +48,7 @@ class Dashboard extends Component {
                     <div>
                     {e.note_message}
                     </div>
+                    <Link to={`/note/${e.note_id}`}><button>View Note</button></Link>
                     <button onClick={() => this.deleteNote(e.note_id)}>Delete Note</button>
                 </div>
             )
@@ -60,7 +62,7 @@ class Dashboard extends Component {
                     <Link to="/create-note"><button className="buttontwo">+</button></Link>
                 </div>
                 <p>Recent Notes</p>
-                <h5>Welcome {this.props.user}</h5>
+                <h5>Welcome <LoadingPage name='Anthony' /></h5>
 
                 <div className="notes-container">
                     {notesData}

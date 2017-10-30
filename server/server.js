@@ -86,6 +86,12 @@ app.delete('/deleteNote/:id', (req, res) => {
     })
 })
 
+app.get('/oneNote/:id', (req, res) =>{
+    app.get('db').get_single_note(req.params.id).then(response => {
+        return res.send(response);
+    })
+})
+
 
 app.get('/auth/authorized', (req, res) => {
     if (!req.user) {
