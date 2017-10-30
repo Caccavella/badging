@@ -1,7 +1,5 @@
-CREATE TABLE IF NOT EXISTS users (
-    user_id SERIAL PRIMARY KEY,
-    user_name VARCHAR(180),
-    email VARCHAR(180),
-    img TEXT,
-    auth_id TEXT
+CREATE TABLE if not exists users (
+    UserID SERIAL PRIMARY KEY,
+    displayName VARCHAR(180),
+    id TEXT
 )
