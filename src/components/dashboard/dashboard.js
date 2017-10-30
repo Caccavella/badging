@@ -11,23 +11,46 @@ class Dashboard extends Component {
         super();
 
         this.state = {
-            notes: {}
+            notes: []
         }
-        this.getNotes = this.getNotes.bind(this);
+        this.deleteNote= this.deleteNote.bind(this)
     }
     componentDidMount() {
-        // this.props.notes.get(this.props.match.params.id).then(note => this.setState({note}))
-    }
-
-    getNotes() {
-        axios.get('/api/getNotes').then(res => {
+        
+        axios.get('/getNotes').then(res => {
             this.setState({
-                notes: res
+                notes: res.data
             })
             console.log(this.state.notes)
         })
+        // this.state.notes.get_notes(this.props.match.params.id).then(note => this.setState({note}))
     }
+
+    deleteNote(eid) {
+        console.log('clicked')
+        axios.delete('/deleteNote/' + eid).then(res => {
+            axios.get('/getNotes').then((res) => {
+                this.setState({
+                    notes: res.data
+                })
+            })
+        })
+    }
+
     render() {
+        var notesData = this.state.notes.map((e,i) => {
+            return(
+                <div key={i}> 
+                    <div>
+                    {e.note_title}
+                    </div>
+                    <div>
+                    {e.note_message}
+                    </div>
+                    <button onClick={() => this.deleteNote(e.note_id)}>Delete Note</button>
+                </div>
+            )
+        })
 
         return (
             <div className="dashcontainer">
@@ -40,7 +63,7 @@ class Dashboard extends Component {
                 <h5>Welcome {this.props.user}</h5>
 
                 <div className="notes-container">
-
+                    {notesData}
                 </div>
             </div>
         )

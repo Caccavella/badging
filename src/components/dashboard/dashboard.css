@@ -7,10 +7,12 @@
 
 .buttonone {
     display: none; 
+    z-index: 1000;
 }
 
 .buttontwo { 
     display: flex;
+    z-index: 1000;
 }
 
 div+p {
@@ -19,10 +21,10 @@ div+p {
     transition: font-size 2s;
 }
 
-div+p:hover {
+/* div+p:hover {
     font-size: 70px;
     transform: rotateY(180deg);
-}
+} */
 
 .notes-container {
     height: 70vh;

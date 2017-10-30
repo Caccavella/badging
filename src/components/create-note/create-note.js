@@ -15,13 +15,16 @@ class CreateNote extends Component {
     }
     
     submit() {
-        axios.post('/api/addNote', this.state).then(res => {
+        console.log('saved!')
+        axios.post('/addNote', this.state).then(res => {
+            console.log('res', res)
             this.setState({
                 noteTitle: '',
                 noteMessage: ''
             })
-            alert('Note Saved!')
+            
         })
+        // alert('Note Saved!')
     }
 
     handleChange(property, val) {
