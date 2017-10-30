@@ -16,8 +16,7 @@ class Dashboard extends Component {
         this.getNotes = this.getNotes.bind(this);
     }
     componentDidMount() {
-        this.getNotes();
-        // console.log(this.props.user)
+        this.props.notes.get(this.props.match.params.id).then(note => this.setState({note}))
     }
 
     getNotes() {
