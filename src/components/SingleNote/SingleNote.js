@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 class SingleNote extends Component {
     constructor() {
         super();
+        let match = this.props.match;
 
         this.state = {
-            note: null
+            note: this.props.match.params.note_id
         }
     }
     componentDidMount() {
