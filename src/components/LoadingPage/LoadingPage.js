@@ -1,21 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class LoadingPage extends Component {
-    constructor() {
-        super();
 
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return(
-            <div>
-                Securing Login....
-            </div>
-        )
-    }
+const LoadingPage = props => {
+    <div>Note: {this.props.notes}</div>
 }
 
 export default LoadingPage;
