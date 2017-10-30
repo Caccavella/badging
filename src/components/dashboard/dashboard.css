@@ -16,6 +16,12 @@
 div+p {
     margin-top: 100px;
     font-size: 50px;
+    transition: font-size 2s;
+}
+
+div+p:hover {
+    font-size: 70px;
+    transform: rotateY(180deg);
 }
 
 .notes-container {

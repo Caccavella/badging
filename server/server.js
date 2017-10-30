@@ -80,7 +80,7 @@ app.post('/api/addNote', (req, res) => {
 })
 
 app.get('/api/getNotes', (req, res, next) => {
-    app.get('db').get_user_note().then(response => res.send(200).send(response))
+    app.get('db').get_notes().then(response => res.send(200).send(response))
 })
 
 app.put('/api/editNotes', (req, res, next) => {
